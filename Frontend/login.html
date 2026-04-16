@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vortex Sports - Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <header class="login-header">
+                <img src="assets/Vortex sports.png" alt="Logo-VortexSport" class="login-logo">
+                <p>Gestão de Estoque Esportivo</p>
+            </header>
+
+            <form id="loginForm" class="login-form">
+                <div class="input-group">
+                    <i data-lucide="user" class="input-icon"></i>
+                    <input type="text" id="usuario" placeholder="Utilizador" required>
+                </div>
+
+                <div class="input-group">
+                    <i data-lucide="lock" class="input-icon"></i>
+                    <input type="password" id="senha" placeholder="Palavra-passe" required>
+                </div>
+
+                <div id="mensagemErro" class="error-message hidden">
+                    Credenciais inválidas. Tente novamente.
+                </div>
+
+                <button type="submit" class="btn-login">
+                    <span>Entrar no Sistema</span>
+                    <i data-lucide="log-in"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="./js/login.js"></script>
+</body>
+</html>

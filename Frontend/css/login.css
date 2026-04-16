@@ -1,0 +1,146 @@
+:root {
+    --brand-blue: #0A192F;
+    --brand-orange: #FF6B00;
+    --brand-orange-hover: #E66000;
+    --text-main: #1E293B;
+    --text-muted: #64748B;
+    --bg-page: #F8FAFC;
+    --white: #FFFFFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--brand-blue); /* Fundo azul profundo da marca */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-card {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 1rem;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.logo-text {
+    font-size: 2rem;
+    font-weight: 800;
+    font-style: italic;
+    color: var(--brand-blue);
+    letter-spacing: -1px;
+}
+
+.logo-text span {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    font-style: normal;
+    color: var(--brand-orange);
+    letter-spacing: 4px;
+    margin-top: -5px;
+}
+
+.login-header p {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 1rem;
+    color: var(--text-muted);
+    width: 20px;
+    height: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 3rem;
+    border: 1px solid #E2E8F0;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: all 0.2s;
+    outline: none;
+}
+
+input:focus {
+    border-color: var(--brand-orange);
+    box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.1);
+}
+
+.btn-login {
+    background-color: var(--brand-orange);
+    color: white;
+    border: none;
+    padding: 0.875rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: background 0.2s;
+}
+
+.btn-login:hover {
+    background-color: var(--brand-orange-hover);
+}
+
+.error-message {
+    background-color: #FEF2F2;
+    color: #EF4444;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    text-align: center;
+    border: 1px solid #FCA5A5;
+}
+
+.hidden {
+    display: none;
+}
+
+.login-logo {
+    width: 180px; 
+    height: auto;
+    margin-bottom: 0.5rem;
+
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
