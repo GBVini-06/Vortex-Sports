@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vortex Sports - Movimentações</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="css/movimentacoes.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2 class="logo-text">VORTEX<span>SPORTS</span></h2>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Painel Geral</span>
+                </a>
+                <a href="produtos.html" class="nav-item">
+                    <i data-lucide="package"></i>
+                    <span>Produtos</span>
+                </a>
+                <a href="movimentacoes.html" class="nav-item active">
+                    <i data-lucide="arrow-left-right"></i>
+                    <span>Movimentações</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="login.html" class="nav-item text-danger" id="btnSair">
+                    <i data-lucide="log-out"></i>
+                    <span>Sair</span>
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <div>
+                    <h1 class="page-title">Histórico de Movimentações</h1>
+                    <p class="page-subtitle">Registre e acompanhe as entradas e saídas de estoque.</p>
+                </div>
+                <div class="user-profile">
+                    <div class="avatar"><i data-lucide="user"></i></div>
+                    <span>Admin</span>
+                </div>
+            </header>
+
+            <section class="table-section">
+                <div class="section-header">
+                    <div class="search-box">
+                        <i data-lucide="search"></i>
+                        <input type="text" placeholder="Filtrar por produto...">
+                    </div>
+                    <button id="btnNovaMovimentacao" class="btn-primary">
+                        <i data-lucide="plus"></i> Registrar Movimentação
+                    </button>
+                </div>
+
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Data / Hora</th>
+                                <th>Produto</th>
+                                <th>Tipo</th>
+                                <th>Quantidade</th>
+                                <th>Responsável</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>16/04/2026 às 10:30</td>
+                                <td>Bola de Futebol Oficial</td>
+                                <td><span class="badge badge-in">Entrada</span></td>
+                                <td class="text-green font-bold">+50</td>
+                                <td>Admin</td>
+                            </tr>
+                            <tr>
+                                <td>16/04/2026 às 09:15</td>
+                                <td>Chuteira Futsal Profissional</td>
+                                <td><span class="badge badge-out">Saída</span></td>
+                                <td class="text-red font-bold">-2</td>
+                                <td>Admin</td>
+                            </tr>
+                            <tr>
+                                <td>15/04/2026 às 16:45</td>
+                                <td>Óculos de Natação Speedo</td>
+                                <td><span class="badge badge-in">Entrada</span></td>
+                                <td class="text-green font-bold">+15</td>
+                                <td>Admin</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="modalMovimentacao" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Nova Movimentação</h2>
+                <button id="closeModal" class="close-btn"><i data-lucide="x"></i></button>
+            </div>
+            
+            <form id="formMovimentacao" class="modal-form">
+                <div class="input-group">
+                    <label>Produto</label>
+                    <select required>
+                        <option value="">Selecione o produto...</option>
+                        <option value="1">Bola de Futebol Oficial</option>
+                        <option value="2">Chuteira Futsal Profissional</option>
+                        <option value="3">Óculos de Natação Speedo</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label>Tipo de Movimentação</label>
+                    <select id="tipoMovimentacao" required>
+                        <option value="">Selecione o tipo...</option>
+                        <option value="entrada">Entrada (+)</option>
+                        <option value="saida">Saída (-)</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label>Quantidade</label>
+                    <input type="number" min="1" placeholder="Ex: 10" required>
+                </div>
+                
+                <div class="modal-actions mt-4">
+                    <button type="button" class="btn-secondary" id="btnCancelar">Cancelar</button>
+                    <button type="submit" class="btn-primary">Confirmar Registro</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="../Backend/supabase.js"></script>
+    
+    <script src="js/login.js"></script>
+</body>
+</html>

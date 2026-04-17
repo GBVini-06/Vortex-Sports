@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vortex Sports - Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2 class="logo-text">VORTEX<span>SPORTS</span></h2>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Painel Geral</span>
+                </a>
+                <a href="produtos.html" class="nav-item">
+                    <i data-lucide="package"></i>
+                    <span>Produtos</span>
+                </a>
+                <a href="movimentacoes.html" class="nav-item">
+                    <i data-lucide="arrow-left-right"></i>
+                    <span>Movimentações</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="#" class="nav-item text-danger" id="btnSair">
+                    <i data-lucide="log-out"></i>
+                    <span>Sair</span>
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <div>
+                    <h1 class="page-title">Resumo do Estoque</h1>
+                    <p class="page-subtitle">Acompanhe os indicadores e gráficos da sua loja.</p>
+                </div>
+                <div class="user-profile">
+                    <div class="avatar"><i data-lucide="user"></i></div>
+                    <span>Admin</span>
+                </div>
+            </header>
+
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon bg-blue"><i data-lucide="box"></i></div>
+                    <div class="stat-info">
+                        <h3>Total de Produtos</h3>
+                        <p class="stat-value">124</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon bg-green"><i data-lucide="dollar-sign"></i></div>
+                    <div class="stat-info">
+                        <h3>Valor em Estoque</h3>
+                        <p class="stat-value">R$ 73.309,50</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon bg-orange"><i data-lucide="alert-triangle"></i></div>
+                    <div class="stat-info">
+                        <h3>Estoque Baixo</h3>
+                        <p class="stat-value">4</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon bg-purple"><i data-lucide="arrow-up-right"></i></div>
+                    <div class="stat-info">
+                        <h3>Entradas Hoje</h3>
+                        <p class="stat-value">12</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="charts-grid">
+                <div class="chart-card">
+                    <h3>Movimentação Semanal</h3>
+                    <canvas id="movimentacaoChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>Produtos por Categoria</h3>
+                    <canvas id="categoriaChart"></canvas>
+                </div>
+            </section>
+
+            <section class="table-section">
+                <div class="section-header">
+                    <h2>Últimas Movimentações</h2>
+                </div>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Produto</th>
+                                <th>Categoria</th>
+                                <th>Tipo</th>
+                                <th>Quantidade</th>
+                                <th>Data</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Bola de Futebol Oficial</td>
+                                <td>Bolas</td>
+                                <td><span class="badge badge-in">Entrada</span></td>
+                                <td>+50</td>
+                                <td>Hoje, 10:30</td>
+                            </tr>
+                            <tr>
+                                <td>Chuteira Futsal</td>
+                                <td>Calçados</td>
+                                <td><span class="badge badge-out">Saída</span></td>
+                                <td>-2</td>
+                                <td>Hoje, 09:15</td>
+                            </tr>
+                            <tr>
+                                <td>Óculos de Natação Speedo</td>
+                                <td>Natação</td>
+                                <td><span class="badge badge-in">Entrada</span></td>
+                                <td>+15</td>
+                                <td>Ontem, 16:45</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="../Backend/supabase.js"></script>
+    
+    <script src="js/login.js"></script>
+</body>
+</body>
+</html>

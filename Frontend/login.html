@@ -19,12 +19,12 @@
             <form id="loginForm" class="login-form">
                 <div class="input-group">
                     <i data-lucide="user" class="input-icon"></i>
-                    <input type="text" id="usuario" placeholder="Utilizador" required>
+                    <input type="text" id="usuario" placeholder="Usuário" required>
                 </div>
 
                 <div class="input-group">
                     <i data-lucide="lock" class="input-icon"></i>
-                    <input type="password" id="senha" placeholder="Palavra-passe" required>
+                    <input type="password" id="senha" placeholder="Senha" required>
                 </div>
 
                 <div id="mensagemErro" class="error-message hidden">
@@ -39,6 +39,10 @@
         </div>
     </div>
 
-    <script src="./js/login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="../Backend/supabase.js"></script>
+    
+    <script src="js/login.js"></script>
 </body>
 </html>

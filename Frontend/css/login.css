@@ -16,7 +16,7 @@
 }
 
 body {
-    background-color: var(--brand-blue); /* Fundo azul profundo da marca */
+    background-color: var(--brand-blue);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,7 +25,7 @@ body {
 
 .login-card {
     background: var(--white);
-    padding: 2.5rem;
+    padding: 5.0rem;
     border-radius: 1rem;
     width: 100%;
     max-width: 400px;
@@ -34,7 +34,7 @@ body {
 
 .login-header {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 
 .logo-text {
@@ -57,7 +57,7 @@ body {
 
 .login-header p {
     color: var(--text-muted);
-    font-size: 0.875rem;
+    font-size: 1.09rem;
     margin-top: 0.5rem;
 }
 

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vortex Sports - Produtos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="css/produtos.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2 class="logo-text">VORTEX<span>SPORTS</span></h2>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Painel Geral</span>
+                </a>
+                <a href="produtos.html" class="nav-item active">
+                    <i data-lucide="package"></i>
+                    <span>Produtos</span>
+                </a>
+                <a href="movimentacoes.html" class="nav-item">
+                    <i data-lucide="arrow-left-right"></i>
+                    <span>Movimentações</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="login.html" class="nav-item text-danger" id="btnSair">
+                    <i data-lucide="log-out"></i>
+                    <span>Sair</span>
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <div>
+                    <h1 class="page-title">Gestão de Produtos</h1>
+                    <p class="page-subtitle">Adicione, edite ou remova itens do seu catálogo.</p>
+                </div>
+                <div class="user-profile">
+                    <div class="avatar"><i data-lucide="user"></i></div>
+                    <span>Admin</span>
+                </div>
+            </header>
+
+            <section class="table-section">
+                <div class="section-header">
+                    <div class="search-box">
+                        <i data-lucide="search"></i>
+                        <input type="text" placeholder="Buscar produto...">
+                    </div>
+                    <button id="btnNovoProduto" class="btn-primary">
+                        <i data-lucide="plus"></i> Novo Produto
+                    </button>
+                </div>
+
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Nome do Produto</th>
+                                <th>Categoria</th>
+                                <th>Preço (R$)</th>
+                                <th>Estoque</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#PRD-001</td>
+                                <td>Bola de Futebol Oficial</td>
+                                <td>Bolas</td>
+                                <td>149,90</td>
+                                <td><span class="badge badge-success">45</span></td>
+                                <td class="actions">
+                                    <button class="btn-icon text-blue" title="Editar"><i data-lucide="edit-2"></i></button>
+                                    <button class="btn-icon text-danger" title="Excluir"><i data-lucide="trash-2"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#PRD-002</td>
+                                <td>Chuteira Futsal Profissional</td>
+                                <td>Calçados</td>
+                                <td>299,90</td>
+                                <td><span class="badge badge-warning">4</span></td>
+                                <td class="actions">
+                                    <button class="btn-icon text-blue"><i data-lucide="edit-2"></i></button>
+                                    <button class="btn-icon text-danger"><i data-lucide="trash-2"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="modalProduto" class="modal-overlay hidden">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h2>Cadastrar Produto</h2>
+                <button id="closeModal" class="close-btn"><i data-lucide="x"></i></button>
+            </div>
+            
+            <form id="formProduto" class="modal-form">
+                <div class="form-grid">
+                    <div class="input-group full-width">
+                        <label>Nome do Produto</label>
+                        <input type="text" placeholder="Ex: Luva de Goleiro Titanium" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Categoria</label>
+                        <select required>
+                            <option value="">Selecione...</option>
+                            <option value="bolas">Bolas</option>
+                            <option value="calcados">Calçados</option>
+                            <option value="acessorios">Acessórios</option>
+                            <option value="natacao">Natação</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Código SKU</label>
+                        <input type="text" placeholder="Ex: LUV-001" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Preço de Venda (R$)</label>
+                        <input type="number" step="0.01" min="0" placeholder="0.00" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Estoque Inicial</label>
+                        <input type="number" min="0" placeholder="Ex: 10" required>
+                    </div>
+                </div>
+                
+                <div class="modal-actions mt-4">
+                    <button type="button" class="btn-secondary" id="btnCancelar">Cancelar</button>
+                    <button type="submit" class="btn-primary">Salvar Produto</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="../Backend/supabase.js"></script>
+    
+    <script src="js/login.js"></script>
+</body>
+</html>
