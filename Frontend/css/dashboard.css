@@ -1,3 +1,6 @@
+
+/* Variáveis Globais (Paleta de Cores do Sistema) */
+
 :root {
     --brand-blue: #0A192F;
     --brand-orange: #FF6B00;
@@ -11,6 +14,8 @@
     --purple: #8B5CF6;
 }
 
+/* Reset de Estilos */
+
 * {
     margin: 0;
     padding: 0;
@@ -22,7 +27,9 @@ body {
     background-color: var(--bg-light);
     color: var(--text-dark);
 }
-/* Container Principal */
+
+/* Layout Principal */
+
 .app-container {
     display: flex;
     height: 100vh;
@@ -30,6 +37,7 @@ body {
 }
 
 /* Sidebar (Menu Lateral) */
+
 .sidebar {
     width: 260px;
     background-color: var(--brand-blue);
@@ -93,6 +101,13 @@ body {
     background-color: rgba(239, 68, 68, 0.1); 
 }
 
+/*  Garante que o hover do "Sair" no footer seja aplicado mesmo com especificidade maior */
+
+.sidebar-footer .text-danger:hover {
+    background-color: rgba(239, 68, 68, 0.1) !important;
+    color: var(--danger) !important;
+}
+
 /* Conteúdo Principal */
 
 .main-content { 
@@ -100,6 +115,8 @@ body {
     padding: 2rem; 
     overflow-y: auto; 
 }
+
+/* Cabeçalho Principal */
 
 .top-header { 
     display: flex; 
@@ -135,7 +152,8 @@ body {
     box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
 }
 
-/* Cards */
+/* GRID de Cards */
+
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -162,21 +180,22 @@ body {
     color: white; 
 }
 
+/* Cores de fundo para cada ícone */
+
 .bg-blue { 
     background-color: var(--brand-blue); 
 }
-
 .bg-orange { 
     background-color: var(--brand-orange); 
 }
-
 .bg-green { 
     background-color: var(--success); 
 }
-
 .bg-purple { 
     background-color: var(--purple); 
 }
+
+/* Texto dentro do card */
 
 .stat-info h3 { 
     font-size: 0.875rem; 
@@ -190,7 +209,7 @@ body {
     color: var(--text-dark); 
 }
 
-/* Gráficos */
+/* GRID de Gráficos */
 
 .charts-grid {
     display: grid;
@@ -212,6 +231,8 @@ body {
     color: var(--text-dark); 
 }
 
+/* Estilo que impede que o canvas do Chat.js vaze para fora do container */
+
 canvas { 
     max-width: 100% !important; 
 }
@@ -220,7 +241,7 @@ canvas {
     .charts-grid { grid-template-columns: 1fr; }
 }
 
-/* Tabela */
+/* Tabela das últimas Movimentações */
 
 .table-section { 
     background-color: var(--white); 
@@ -256,6 +277,8 @@ canvas {
     font-size: 0.875rem; 
 }
 
+/* Badges de Tipo (Entrada/Saída)*/
+
 .badge { 
     padding: 0.25rem 0.75rem;
     border-radius: 1rem; 
@@ -263,23 +286,29 @@ canvas {
     font-weight: 600; 
 }
 
+/* Entrada */
+
 .badge-in { 
     background-color: #D1FAE5; 
     color: #065F46; 
 }
+
+/* Saída */
 
 .badge-out { 
     background-color: #FEE2E2;  
     color: #991B1B; 
 }
 
-.sidebar-footer .text-danger:hover {
-    background-color: rgba(239, 68, 68, 0.1) !important;
-    color: var(--danger) !important;
-}
-/* ==========================================
-   NOTIFICAÇÕES FLUTUANTES DE ESTOQUE BAIXO
-   ========================================== */
+/* UTILITÁRIOS DE COR
+Classes reutilizáveis para colorir valores na tabela */
+
+.text-green { color: var(--success); }
+.text-red   { color: var(--danger);  }
+.font-bold  { font-weight: 700; }
+
+/* Notificações Flutuantes de Estoque Baixo */
+
 #container-notificacoes {
     position: fixed;
     top: 20px;
@@ -332,11 +361,9 @@ canvas {
     color: #EF4444;
 }
 
+/* Animação de entrada deslizando da direita para a posição final */
+
 @keyframes deslizarEntrada {
     from { transform: translateX(120%); opacity: 0; }
     to   { transform: translateX(0);    opacity: 1; }
 }
-
-.text-green { color: var(--success); }
-.text-red   { color: var(--danger);  }
-.font-bold  { font-weight: 700; }

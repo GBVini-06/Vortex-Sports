@@ -1,15 +1,19 @@
+
+/* Váriaveis Globais (Paleta de Cores do Sistema)*/
 :root {
-    --brand-blue: #0A192F;
+    --brand-blue:   #0A192F;
     --brand-orange: #FF6B00;
-    --bg-light: #F1F5F9;
-    --white: #FFFFFF;
-    --text-dark: #1E293B;
-    --text-muted: #64748B;
+    --bg-light:     #F1F5F9;
+    --white:        #FFFFFF;
+    --text-dark:    #1E293B;
+    --text-muted:   #64748B;
     --border-color: #E2E8F0;
-    --success: #10B981;
-    --danger: #EF4444;
-    --blue: #3B82F6;
+    --success:      #10B981;
+    --danger:       #EF4444;
+    --blue:         #3B82F6;
 }
+
+/* Reset de Estilos */
 
 * {
     margin: 0;
@@ -23,13 +27,16 @@ body {
     color: var(--text-dark);
 }
 
+/* Container Principal */
+
 .app-container {
     display: flex;
     height: 100vh;
     overflow: hidden;
 }
 
-/* Sidebar (Menu Lateral)*/
+/* Sidebar (Menu Lateral) */
+
 .sidebar {
     width: 260px;
     background-color: var(--brand-blue);
@@ -79,7 +86,7 @@ body {
     font-weight: 500;
 }
 
-.nav-item:hover, 
+.nav-item:hover,
 .nav-item.active {
     background-color: rgba(255, 255, 255, 0.1);
     color: white;
@@ -89,12 +96,24 @@ body {
     border-left: 4px solid var(--brand-orange);
 }
 
+.sidebar-footer .text-danger {
+    color: #94A3B8;
+}
+
+.sidebar-footer .text-danger:hover {
+    background-color: rgba(239, 68, 68, 0.1) !important;
+    color: var(--danger) !important;
+}
+
 /* Conteúdo Principal */
+
 .main-content {
     flex: 1;
     padding: 2rem;
     overflow-y: auto;
 }
+
+/* Cabeçalho da Página */
 
 .top-header {
     display: flex;
@@ -128,15 +147,16 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 /* Seção da Tabela */
+
 .table-section {
     background-color: var(--white);
     border-radius: 1rem;
     padding: 1.5rem;
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
 .section-header {
@@ -145,6 +165,8 @@ body {
     align-items: center;
     margin-bottom: 1.5rem;
 }
+
+/* Campo de Busca */
 
 .search-box {
     display: flex;
@@ -171,6 +193,7 @@ body {
 }
 
 /* Botões Globais */
+
 .btn-primary {
     background-color: var(--brand-orange);
     color: white;
@@ -203,7 +226,8 @@ body {
     background-color: var(--bg-light);
 }
 
-/* Estilos da Tabela */
+/* Tabela de Produtos */
+
 .table-container {
     overflow-x: auto;
 }
@@ -213,7 +237,7 @@ body {
     border-collapse: collapse;
 }
 
-.data-table th, 
+.data-table th,
 .data-table td {
     padding: 1rem;
     text-align: left;
@@ -226,6 +250,7 @@ body {
     color: var(--text-muted);
 }
 
+/* Badges de Nível de Estoque */
 .badge {
     padding: 0.25rem 0.75rem;
     border-radius: 1rem;
@@ -233,146 +258,34 @@ body {
     font-weight: 600;
 }
 
-.badge-success { background-color: #D1FAE5; color: #065F46; }
-.badge-warning { background-color: #FEF3C7; color: #92400E; }
-.badge-danger { background-color: #FEF2F2; color: #991B1B; }
-
-.action-buttons {
-    display: flex;
-    gap: 0.5rem;
+/* Estoque bom */
+.badge-success {
+    background-color: #D1FAE5;
+    color: #065F46;
 }
 
-.action-buttons button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.25rem;
-    border-radius: 0.25rem;
-    transition: 0.2s;
+/* Estoque abaixo do mínimo mas ainda maior que zero */
+.badge-warning {
+    background-color: #FEF3C7;
+    color: #92400E;
 }
 
-.text-blue { color: var(--blue); }
-.text-danger { color: var(--danger); }
-
-.action-buttons button:hover {
-    background-color: var(--bg-light);
+/* Estoque zerado — situação crítica */
+.badge-danger {
+    background-color: #FEF2F2;
+    color: #991B1B;
 }
 
-/* Estilo para o Modal */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(10, 25, 47, 0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-}
+/* Botões de Ação na Tabela */
 
-.modal-overlay.hidden {
-    display: none;
-}
-
-.modal-content {
-    background: var(--white);
-    width: 100%;
-    max-width: 500px;
-    border-radius: 1rem;
-    padding: 1.5rem;
-    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
-}
-
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-}
-
-.modal-header h2 {
-    font-size: 1.25rem;
-    color: var(--text-dark);
-}
-
-.close-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--text-muted);
-}
-
-.close-btn:hover {
-    color: var(--danger);
-}
-
-/* Formulário do Modal */
-.modal-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.form-row {
-    display: flex;
-    gap: 1rem;
-}
-
-.input-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    flex: 1;
-}
-
-.input-group label {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--text-dark);
-}
-
-.input-group input, 
-.input-group select {
-    padding: 0.75rem;
-    border: 1px solid var(--border-color);
-    border-radius: 0.5rem;
-    outline: none;
-    font-size: 0.9rem;
-}
-
-.input-group input:focus, 
-.input-group select:focus {
-    border-color: var(--brand-orange);
-}
-
-.modal-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 1rem;
-    margin-top: 1rem;
-    border-top: 1px solid var(--border-color);
-    padding-top: 1rem;
-}
-
-.sidebar-footer .text-danger {
-    color: #94A3B8; 
-}
-
-.sidebar-footer .text-danger:hover {
-    background-color: rgba(239, 68, 68, 0.1) !important;
-    color: var(--danger) !important;
-}
-
-/* Estilo para os botões de ação na tabela */
 .actions {
     display: flex;
     gap: 8px;
     align-items: center;
 }
 
-/* Todos os botões de ação sem borda, tamanho igual */
+/* Base comum para todos os botões de ação */
+
 .btn-icon,
 .btn-edit,
 .btn-delete,
@@ -391,20 +304,27 @@ body {
     height: 32px;
 }
 
+/* Botão de movimentação */
 .btn-mov,
 .text-green { color: #10b981; }
+
 .btn-mov:hover { background: #d1fae5; }
 
+/* Botão de edição */
 .btn-edit,
 .text-blue { color: #3b82f6; }
+
 .btn-edit:hover { background: #eff6ff; }
 
+/* Botão de exclusão */
 .btn-delete,
 .btn-del,
 .text-danger { color: #ef4444; }
+
 .btn-delete:hover,
 .btn-del:hover { background: #fef2f2; }
 
+/* Ícones SVG dentro dos botões — tamanho padronizado */
 .btn-icon svg,
 .btn-edit svg,
 .btn-delete svg,
@@ -414,9 +334,8 @@ body {
     height: 16px;
 }
 
-/* ========================================== */
-/* NOTIFICAÇÕES FLUTUANTES (ESTOQUE BAIXO) */
-/* ========================================== */
+/* Notificações Flutuantes */
+
 #container-notificacoes {
     position: fixed;
     top: 20px;
@@ -429,7 +348,7 @@ body {
 
 .notificacao {
     background-color: #ffffff;
-    border-left: 5px solid #F59E0B; /* Laranja/Amarelo de Alerta */
+    border-left: 5px solid #F59E0B;
     color: #334155;
     padding: 15px 20px;
     border-radius: 8px;
@@ -470,59 +389,90 @@ body {
     color: #333;
 }
 
+/* Animação: entra deslizando da direita */
 @keyframes deslizarEntrada {
     from { transform: translateX(120%); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
+    to   { transform: translateX(0);    opacity: 1; }
 }
 
-/* ========================================== */
-/* CABEÇALHO DO MODAL (TÍTULO E BOTÃO FECHAR) */
-/* ========================================== */
+/* Modais (Produto e Movimentação Rápida) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 25, 47, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-overlay.hidden {
+    display: none;
+}
+
+/* Modal padrão (movimentação rápida) */
+.modal-content {
+    background: var(--white);
+    width: 100%;
+    max-width: 500px;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal largo (cadastro/edição de produto) */
+.modal-lg {
+    max-width: 640px !important;
+}
+
 .modal-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 1.5rem;
 }
 
+.modal-header h2,
 .modal-title {
+    font-size: 1.25rem;
+    color: var(--text-dark);
     margin: 0;
-    color: #0F172A;
 }
 
+/* Botão de fechar (Modal Cadastro e Edição) */
+.close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+}
+
+.close-btn:hover {
+    color: var(--danger);
+}
+
+/* Botão de fechar (modal Movimentacao) */
 .btn-fechar-modal {
     background: none;
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    color: #64748B;
+    color: var(--text-muted);
     transition: color 0.2s ease;
 }
 
 .btn-fechar-modal:hover {
-    color: #EF4444; /* Fica vermelho ao passar o mouse */
+    color: var(--danger);
 }
 
-/* ========================================== */
-/* BOTÕES E ESPAÇAMENTOS DO MODAL DE MOVIMENTAÇÃO */
-/* ========================================== */
-.acoes-movimentacao {
-    margin-top: 20px;
-}
-
-.btn-laranja {
-    background-color: #F97316 !important;
-    border-color: #F97316 !important;
-    color: white;
-}
-
-.btn-laranja:hover {
-    background-color: #EA580C !important; /* Laranja um pouco mais escuro no hover */
-}
-
-/* CORREÇÃO: modal-lg adicionado (referenciado no HTML mas ausente no CSS) */
-.modal-lg {
-    max-width: 640px !important;
+/* Formulário do modal de Produtos */
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .form-grid {
@@ -535,11 +485,49 @@ body {
     grid-column: 1 / -1;
 }
 
-.mt-4 {
-    margin-top: 1rem;
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    flex: 1;
 }
 
-/* Estilo para o nome do produto no modal de movimentação */
+.input-group label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.input-group input,
+.input-group select {
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    outline: none;
+    font-size: 0.9rem;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: var(--brand-orange);
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+}
+
+/* Ações do modal de movimentação rápida */
+.acoes-movimentacao {
+    margin-top: 20px;
+}
+
+/* Formulário do modal de Movimentação Rápida */
+
 .mov-nome-destaque {
     font-size: 1rem;
     font-weight: 700;
@@ -577,6 +565,30 @@ body {
 .mov-input:focus {
     border-color: var(--brand-orange);
 }
-.nome-destaque { font-weight: 500; }
-.status-tabela { text-align: center; color: #64748B; padding: 20px; font-weight: 500; }
-.erro-tabela { color: #EF4444; }
+
+/* Utilitários da tabela */
+
+.nome-destaque {
+    font-weight: 500;
+}
+
+.status-tabela {
+    text-align: center;
+    color: #64748B;
+    padding: 20px;
+    font-weight: 500;
+}
+
+.erro-tabela {
+    color: #EF4444;
+}
+
+.btn-laranja {
+    background-color: #F97316 !important;
+    border-color: #F97316 !important;
+    color: white;
+}
+
+.btn-laranja:hover {
+    background-color: #EA580C !important;
+}

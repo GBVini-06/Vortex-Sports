@@ -1,3 +1,5 @@
+/*Variáveis Globais (Paleta de Cores do Sistema)*/
+
 :root {
     --brand-blue: #0A192F;
     --brand-orange: #FF6B00;
@@ -7,6 +9,8 @@
     --bg-page: #F8FAFC;
     --white: #FFFFFF;
 }
+
+/* Reset de Estilos */
 
 * {
     margin: 0;
@@ -22,7 +26,9 @@ body {
     align-items: center;
     min-height: 100vh;
 }
+
 /* Cartão de Login */
+
 .login-card {
     background: var(--white);
     padding: 5.0rem;
@@ -34,7 +40,17 @@ body {
 
 .login-header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-logo {
+    width: 180px; 
+    height: auto;
+    margin-bottom: 0.5rem;
+
 }
 
 .logo-text {
@@ -60,6 +76,8 @@ body {
     font-size: 1.09rem;
     margin-top: 0.5rem;
 }
+
+/* Formulário de Login */
 
 .login-form {
     display: flex;
@@ -95,7 +113,9 @@ input:focus {
     border-color: var(--brand-orange);
     box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.1);
 }
+
 /* Estilo para o Botão de Login */
+
 .btn-login {
     background-color: var(--brand-orange);
     color: white;
@@ -116,6 +136,8 @@ input:focus {
     background-color: var(--brand-orange-hover);
 }
 
+/* Mwnsagem de Erro */
+
 .error-message {
     background-color: #FEF2F2;
     color: #EF4444;
@@ -126,21 +148,8 @@ input:focus {
     border: 1px solid #FCA5A5;
 }
 
+/* Classe utilitária para esconder elementos sem removê-los do DOM */
+
 .hidden {
     display: none;
-}
-
-.login-logo {
-    width: 180px; 
-    height: auto;
-    margin-bottom: 0.5rem;
-
-}
-
-.login-header {
-    text-align: center;
-    margin-bottom: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
