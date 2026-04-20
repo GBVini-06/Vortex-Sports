@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vortex Sports - Login</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="./css/login.css">
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <link rel="icon" href="assets/Vortex sports.png" type="image/png">
 </head>
 <body>
     <div class="login-container">
@@ -16,7 +17,7 @@
                 <p>Gestão de Estoque Esportivo</p>
             </header>
 
-            <form id="loginForm" class="login-form">
+            <form id="form-login" class="login-form">
                 <div class="input-group">
                     <i data-lucide="user" class="input-icon"></i>
                     <input type="text" id="usuario" placeholder="Usuário" required>
@@ -40,9 +41,9 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-    <script src="../Backend/supabase.js"></script>
     
+    <script src="js/supabase-config.js"></script>
+
     <script src="js/login.js"></script>
 </body>
 </html>

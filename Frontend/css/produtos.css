@@ -29,9 +29,7 @@ body {
     overflow: hidden;
 }
 
-/* =========================================
-   Sidebar (Menu Lateral)
-   ========================================= */
+/* Sidebar (Menu Lateral)*/
 .sidebar {
     width: 260px;
     background-color: var(--brand-blue);
@@ -91,9 +89,7 @@ body {
     border-left: 4px solid var(--brand-orange);
 }
 
-/* =========================================
-   Área Principal (Main Content)
-   ========================================= */
+/* Conteúdo Principal */
 .main-content {
     flex: 1;
     padding: 2rem;
@@ -135,9 +131,7 @@ body {
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-/* =========================================
-   Header da Seção e Tabela
-   ========================================= */
+/* Seção da Tabela */
 .table-section {
     background-color: var(--white);
     border-radius: 1rem;
@@ -209,9 +203,7 @@ body {
     background-color: var(--bg-light);
 }
 
-/* =========================================
-   Estilos da Tabela
-   ========================================= */
+/* Estilos da Tabela */
 .table-container {
     overflow-x: auto;
 }
@@ -266,9 +258,7 @@ body {
     background-color: var(--bg-light);
 }
 
-/* =========================================
-   Modal (Janela Sobreposta)
-   ========================================= */
+/* Estilo para o Modal */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -374,3 +364,219 @@ body {
     background-color: rgba(239, 68, 68, 0.1) !important;
     color: var(--danger) !important;
 }
+
+/* Estilo para os botões de ação na tabela */
+.actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Todos os botões de ação sem borda, tamanho igual */
+.btn-icon,
+.btn-edit,
+.btn-delete,
+.btn-del,
+.btn-mov {
+    background: none;
+    border: none;
+    padding: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    width: 32px;
+    height: 32px;
+}
+
+.btn-mov,
+.text-green { color: #10b981; }
+.btn-mov:hover { background: #d1fae5; }
+
+.btn-edit,
+.text-blue { color: #3b82f6; }
+.btn-edit:hover { background: #eff6ff; }
+
+.btn-delete,
+.btn-del,
+.text-danger { color: #ef4444; }
+.btn-delete:hover,
+.btn-del:hover { background: #fef2f2; }
+
+.btn-icon svg,
+.btn-edit svg,
+.btn-delete svg,
+.btn-del svg,
+.btn-mov svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* ========================================== */
+/* NOTIFICAÇÕES FLUTUANTES (ESTOQUE BAIXO) */
+/* ========================================== */
+#container-notificacoes {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.notificacao {
+    background-color: #ffffff;
+    border-left: 5px solid #F59E0B; /* Laranja/Amarelo de Alerta */
+    color: #334155;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    min-width: 300px;
+    max-width: 400px;
+    animation: deslizarEntrada 0.4s ease-out;
+    position: relative;
+    font-family: inherit;
+}
+
+.notificacao-titulo {
+    font-weight: 700;
+    color: #D97706;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.notificacao-texto {
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.notificacao-fechar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    color: #94A3B8;
+    background: none;
+    border: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: color 0.2s;
+}
+
+.notificacao-fechar:hover {
+    color: #333;
+}
+
+@keyframes deslizarEntrada {
+    from { transform: translateX(120%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* ========================================== */
+/* CABEÇALHO DO MODAL (TÍTULO E BOTÃO FECHAR) */
+/* ========================================== */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.modal-title {
+    margin: 0;
+    color: #0F172A;
+}
+
+.btn-fechar-modal {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #64748B;
+    transition: color 0.2s ease;
+}
+
+.btn-fechar-modal:hover {
+    color: #EF4444; /* Fica vermelho ao passar o mouse */
+}
+
+/* ========================================== */
+/* BOTÕES E ESPAÇAMENTOS DO MODAL DE MOVIMENTAÇÃO */
+/* ========================================== */
+.acoes-movimentacao {
+    margin-top: 20px;
+}
+
+.btn-laranja {
+    background-color: #F97316 !important;
+    border-color: #F97316 !important;
+    color: white;
+}
+
+.btn-laranja:hover {
+    background-color: #EA580C !important; /* Laranja um pouco mais escuro no hover */
+}
+
+/* CORREÇÃO: modal-lg adicionado (referenciado no HTML mas ausente no CSS) */
+.modal-lg {
+    max-width: 640px !important;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-grid .full-width {
+    grid-column: 1 / -1;
+}
+
+.mt-4 {
+    margin-top: 1rem;
+}
+
+/* Estilo para o nome do produto no modal de movimentação */
+.mov-nome-destaque {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--brand-blue);
+    padding: 0.75rem;
+    background: var(--bg-light);
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.mov-input-group {
+    margin-bottom: 0.75rem;
+}
+
+.mov-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.mov-select,
+.mov-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    outline: none;
+    font-size: 0.9rem;
+}
+
+.mov-select:focus,
+.mov-input:focus {
+    border-color: var(--brand-orange);
+}
+.nome-destaque { font-weight: 500; }
+.status-tabela { text-align: center; color: #64748B; padding: 20px; font-weight: 500; }
+.erro-tabela { color: #EF4444; }

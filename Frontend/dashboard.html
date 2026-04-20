@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vortex Sports - Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="icon" href="assets/Vortex sports.png" type="image/png">
 </head>
 <body>
     <div class="app-container">
@@ -17,7 +18,7 @@
             </div>
             
             <nav class="sidebar-nav">
-                <a href="#" class="nav-item active">
+                <a href="dashboard.html" class="nav-item active">
                     <i data-lucide="layout-dashboard"></i>
                     <span>Painel Geral</span>
                 </a>
@@ -32,7 +33,7 @@
             </nav>
 
             <div class="sidebar-footer">
-                <a href="#" class="nav-item text-danger" id="btnSair">
+                <a href="index.html" class="nav-item text-danger" id="btnSair">
                     <i data-lucide="log-out"></i>
                     <span>Sair</span>
                 </a>
@@ -47,7 +48,7 @@
                 </div>
                 <div class="user-profile">
                     <div class="avatar"><i data-lucide="user"></i></div>
-                    <span>Admin</span>
+                    <span id="nomeUtilizador">Carregando...</span>
                 </div>
             </header>
 
@@ -56,7 +57,7 @@
                     <div class="stat-icon bg-blue"><i data-lucide="box"></i></div>
                     <div class="stat-info">
                         <h3>Total de Produtos</h3>
-                        <p class="stat-value">124</p>
+                        <p class="stat-value" id="card-total">Carregando...</p>
                     </div>
                 </div>
                 
@@ -64,7 +65,7 @@
                     <div class="stat-icon bg-green"><i data-lucide="dollar-sign"></i></div>
                     <div class="stat-info">
                         <h3>Valor em Estoque</h3>
-                        <p class="stat-value">R$ 73.309,50</p>
+                        <p class="stat-value" id="card-valor">Carregando...</p>
                     </div>
                 </div>
 
@@ -72,7 +73,7 @@
                     <div class="stat-icon bg-orange"><i data-lucide="alert-triangle"></i></div>
                     <div class="stat-info">
                         <h3>Estoque Baixo</h3>
-                        <p class="stat-value">4</p>
+                        <p class="stat-value" id="card-baixo">Carregando...</p>
                     </div>
                 </div>
 
@@ -80,19 +81,23 @@
                     <div class="stat-icon bg-purple"><i data-lucide="arrow-up-right"></i></div>
                     <div class="stat-info">
                         <h3>Entradas Hoje</h3>
-                        <p class="stat-value">12</p>
+                        <p class="stat-value" id="card-entradas">Carregando...</p>
                     </div>
                 </div>
             </section>
 
             <section class="charts-grid">
                 <div class="chart-card">
-                    <h3>Movimentação Semanal</h3>
-                    <canvas id="movimentacaoChart"></canvas>
+                    <h3>Movimentação Geral</h3>
+                    <div style="position: relative; height: 300px; width: 100%;">
+                        <canvas id="movimentacaoChart"></canvas>
+                    </div>
                 </div>
                 <div class="chart-card">
                     <h3>Produtos por Categoria</h3>
-                    <canvas id="categoriaChart"></canvas>
+                    <div style="position: relative; height: 300px; width: 100%;">
+                        <canvas id="categoriaChart"></canvas>
+                    </div>
                 </div>
             </section>
 
@@ -111,27 +116,11 @@
                                 <th>Data</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="tabela-movimentacoes">
                             <tr>
-                                <td>Bola de Futebol Oficial</td>
-                                <td>Bolas</td>
-                                <td><span class="badge badge-in">Entrada</span></td>
-                                <td>+50</td>
-                                <td>Hoje, 10:30</td>
-                            </tr>
-                            <tr>
-                                <td>Chuteira Futsal</td>
-                                <td>Calçados</td>
-                                <td><span class="badge badge-out">Saída</span></td>
-                                <td>-2</td>
-                                <td>Hoje, 09:15</td>
-                            </tr>
-                            <tr>
-                                <td>Óculos de Natação Speedo</td>
-                                <td>Natação</td>
-                                <td><span class="badge badge-in">Entrada</span></td>
-                                <td>+15</td>
-                                <td>Ontem, 16:45</td>
+                                <td colspan="5" style="text-align: center; padding: 20px;">
+                                    Buscando dados no servidor...
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -140,11 +129,14 @@
         </main>
     </div>
 
+    <div id="container-notificacoes"></div>
+
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-    <script src="../Backend/supabase.js"></script>
+    <script src="js/supabase-config.js"></script>
     
-    <script src="js/login.js"></script>
-</body>
+    <script src="js/auth.js"></script>
+
+    <script src="js/dashboard.js"></script>
 </body>
 </html>

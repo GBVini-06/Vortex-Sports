@@ -22,14 +22,14 @@ body {
     background-color: var(--bg-light);
     color: var(--text-dark);
 }
-
+/* Container Principal */
 .app-container {
     display: flex;
     height: 100vh;
     overflow: hidden;
 }
 
-/* Sidebar */
+/* Sidebar (Menu Lateral) */
 .sidebar {
     width: 260px;
     background-color: var(--brand-blue);
@@ -272,8 +272,71 @@ canvas {
     background-color: #FEE2E2;  
     color: #991B1B; 
 }
-/* Correção do hover do botão Sair no menu lateral */
+
 .sidebar-footer .text-danger:hover {
     background-color: rgba(239, 68, 68, 0.1) !important;
     color: var(--danger) !important;
 }
+/* ==========================================
+   NOTIFICAÇÕES FLUTUANTES DE ESTOQUE BAIXO
+   ========================================== */
+#container-notificacoes {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.notificacao {
+    background-color: #ffffff;
+    border-left: 5px solid #F59E0B;
+    color: #334155;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.15);
+    min-width: 300px;
+    max-width: 400px;
+    animation: deslizarEntrada 0.4s ease-out;
+    position: relative;
+}
+
+.notificacao-titulo {
+    font-weight: 700;
+    color: #D97706;
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+.notificacao-texto {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.notificacao-fechar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    color: #94A3B8;
+    background: none;
+    border: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: color 0.2s;
+}
+
+.notificacao-fechar:hover {
+    color: #EF4444;
+}
+
+@keyframes deslizarEntrada {
+    from { transform: translateX(120%); opacity: 0; }
+    to   { transform: translateX(0);    opacity: 1; }
+}
+
+.text-green { color: var(--success); }
+.text-red   { color: var(--danger);  }
+.font-bold  { font-weight: 700; }

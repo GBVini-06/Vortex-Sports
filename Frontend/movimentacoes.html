@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vortex Sports - Movimentações</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
     <link rel="stylesheet" href="css/movimentacoes.css">
+    <link rel="icon" href="assets/Vortex sports.png" type="image/png">
 </head>
 <body>
     <div class="app-container">
@@ -31,7 +32,7 @@
             </nav>
 
             <div class="sidebar-footer">
-                <a href="login.html" class="nav-item text-danger" id="btnSair">
+                <a href="index.html" class="nav-item text-danger" id="btnSair">
                     <i data-lucide="log-out"></i>
                     <span>Sair</span>
                 </a>
@@ -46,7 +47,7 @@
                 </div>
                 <div class="user-profile">
                     <div class="avatar"><i data-lucide="user"></i></div>
-                    <span>Admin</span>
+                    <span id="nomeUtilizador">Carregando...</span>
                 </div>
             </header>
 
@@ -54,7 +55,7 @@
                 <div class="section-header">
                     <div class="search-box">
                         <i data-lucide="search"></i>
-                        <input type="text" placeholder="Filtrar por produto...">
+                        <input type="text" id="inputFiltro" placeholder="Filtrar por produto...">
                     </div>
                     <button id="btnNovaMovimentacao" class="btn-primary">
                         <i data-lucide="plus"></i> Registrar Movimentação
@@ -72,27 +73,12 @@
                                 <th>Responsável</th>
                             </tr>
                         </thead>
-                        <tbody>
+
+                        <tbody id="tabela-movimentacoes">
                             <tr>
-                                <td>16/04/2026 às 10:30</td>
-                                <td>Bola de Futebol Oficial</td>
-                                <td><span class="badge badge-in">Entrada</span></td>
-                                <td class="text-green font-bold">+50</td>
-                                <td>Admin</td>
-                            </tr>
-                            <tr>
-                                <td>16/04/2026 às 09:15</td>
-                                <td>Chuteira Futsal Profissional</td>
-                                <td><span class="badge badge-out">Saída</span></td>
-                                <td class="text-red font-bold">-2</td>
-                                <td>Admin</td>
-                            </tr>
-                            <tr>
-                                <td>15/04/2026 às 16:45</td>
-                                <td>Óculos de Natação Speedo</td>
-                                <td><span class="badge badge-in">Entrada</span></td>
-                                <td class="text-green font-bold">+15</td>
-                                <td>Admin</td>
+                                <td colspan="5" style="text-align: center; padding: 20px;">
+                                    Carregando movimentações do banco de dados...
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -111,11 +97,8 @@
             <form id="formMovimentacao" class="modal-form">
                 <div class="input-group">
                     <label>Produto</label>
-                    <select required>
-                        <option value="">Selecione o produto...</option>
-                        <option value="1">Bola de Futebol Oficial</option>
-                        <option value="2">Chuteira Futsal Profissional</option>
-                        <option value="3">Óculos de Natação Speedo</option>
+                    <select id="produtoSelect" required>
+                        <option value="">Carregando produtos...</option>
                     </select>
                 </div>
                 
@@ -130,21 +113,23 @@
                 
                 <div class="input-group">
                     <label>Quantidade</label>
-                    <input type="number" min="1" placeholder="Ex: 10" required>
+                    <input type="number" id="quantidadeInput" min="1" placeholder="Ex: 10" required>
                 </div>
                 
                 <div class="modal-actions mt-4">
                     <button type="button" class="btn-secondary" id="btnCancelar">Cancelar</button>
-                    <button type="submit" class="btn-primary">Confirmar Registro</button>
+                    <button type="submit" class="btn-primary" id="btnSalvar">Confirmar Registro</button>
                 </div>
             </form>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-    <script src="../Backend/supabase.js"></script>
     
-    <script src="js/login.js"></script>
+    <script src="js/supabase-config.js"></script>
+    
+    <script src="js/auth.js"></script>]
+    
+    <script src="js/movimentacoes.js"></script>
 </body>
 </html>
